@@ -1,6 +1,6 @@
 import cv2
 import random
-import mediapipe
+import mediapipe as mp
 import numpy as np
 import torch
 import pygame
@@ -16,7 +16,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 model = YOLO("yolov8n.pt")
 model.to(device)
 
-mp_face = mediapipe.solutions.face_mesh
+mp_face = mp.solutions.face_mesh
 face_mesh = mp_face.FaceMesh(refine_landmarks=True)
 
 camera = cv2.VideoCapture(0)
